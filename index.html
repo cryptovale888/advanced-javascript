@@ -1,27 +1,31 @@
 <!DOCTYPE html>
 
 <html>
-  <head>
-    <title>Task app</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href='assets/css/style.css' rel='stylesheet' />
-  </head>
 
-  <body>
-    <div class='app-wrapper'>
-        <div class='add-task-form'>
-            <div class='input-groups'>
-                <input id='taskName' type='text' name='task-name' value='' placeholder='Task name...' />
-                <input id='taskDescription' type='text' name='task-description' value='' placeholder='Task description...' />
-            </div>
-            <button id='addTask' class='btn btn-add'>Add Task</button>
-        </div>
+<head>
+  <title>Task app</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href='assets/css/style.css' rel='stylesheet' />
+</head>
 
-        <div class='task-card-wrapper' id='taskCardWrapper'>
-        </div>
+<body>
+  <div class='app-wrapper'>
+    <!-- Form Start -->
+    <div class='add-task-form'>
+      <!-- Input Group -->
+      <div class='input-groups'>
+        <input id='taskName' type='text' name='task-name' value='' placeholder='Task name...' />
+        <input id='taskDescription' type='text' name='task-description' value='' placeholder='Task description...' />
+      </div>
+      
+      <button id='addTask' class='btn btn-add'>Add Task</button>
     </div>
+    <!-- Card Task -->
+    <div class='task-card-wrapper' id='taskCardWrapper'>
+    </div>
+  </div>
 
-    <script src='assets/js/main.js'></script>
-  </body>
+  <script src='assets/js/main.js'></script>
+</body>
+
 </html>
-

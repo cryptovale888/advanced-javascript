@@ -1,3 +1,4 @@
+// Pe un event la id-ul addTask chiama functia addTask
 document.getElementById("addTask").addEventListener("click", () => {
   addTask();
 });
