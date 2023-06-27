@@ -1,0 +1,68 @@
+body {
+    margin:0;
+}
+
+body,
+.app-wrapper {
+    height: 100vh;
+}
+
+.app-wrapper {
+    display:flex;
+    flex-flow:row nowrap;
+    justify-content:space-between;
+    align-items:center;
+}
+.add-task-form {
+    display:flex;
+    flex-flow:column wrap;
+    justify-content:space-between;
+    min-height:350px;
+    min-width:250px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    padding:50px;
+    margin-left:40px;
+}
+.add-task-form .input-groups {
+    display:flex;
+    flex-flow:column wrap;
+}
+
+.add-task-form .input-groups input {
+    margin-bottom:30px;
+    padding:10px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border:none;
+}
+.btn {
+    text-align:center;
+    border:none;
+    padding:10px;
+    cursor:pointer;
+    font-weight: 700;
+}
+.btn-add,
+.btn-complete {
+    background-color:#9EEFA6;
+    color:#FFF;
+}
+
+.task-card-wrapper {
+    display:flex;
+    flex-flow:row wrap;
+    align-items: center;
+    width: 50%;
+    max-height: 100vh;
+}
+.task-card {
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    padding:50px;
+    margin-right:40px;
+    text-align:center;
+    display:flex;
+    flex-flow:column wrap;
+    justify-content: center;
+    align-items: center;
+    margin:15px;
+    min-width: 250px;
+}
