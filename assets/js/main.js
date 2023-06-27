@@ -20,7 +20,8 @@ const addTask = () => {
     const completeTaskButton = document.createElement("button");
 
     wrapperID++;
-    taskWrapper.class = 'task-' + wrapperID;
+    taskWrapper.setAttribute('id', 'task-' + wrapperID);
+    // classList.add('task-' + wrapperID);
 
     taskWrapper.classList.add('task-card');
     completeTaskButton.classList.add('btn','btn-complete');
@@ -34,19 +35,20 @@ const addTask = () => {
     const completeTaskText = document.createTextNode("Complete task");
 
     const taskCardWrapper = document.getElementById("taskCardWrapper");
-
+    taskCardWrapper.appendChild(taskWrapper);
     taskWrapper.appendChild(nameWrapper);
-    taskWrapper.appendChild(descwWrapper);
+
+    taskWrapper.appendChild(descWrapper);
     taskWrapper.appendChild(completeTaskButton);
 
     nameWrapper.appendChild(name);
     descWrapper.appendChild(desc);
     completeTaskButton.appendChild(completeTaskText);
 
-    taskCardWrapper.appendChild(taskWrapper);
+    
   }
 };
 
 const completeTask = (id) => {
-    document.getElementById(id).hide();
+    document.getElementById(id).remove();
 }
