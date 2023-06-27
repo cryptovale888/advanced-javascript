@@ -8,21 +8,13 @@ function testDebugging() {
   console.log("The result is: " + result);
 }
 
-
-
 let arr1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-function myProblem (arr) {
-   
-    let arr2 = [];
-    for (let i; i < arr.length; i+) {
-       
-        arr2.push(arr[i]*2);
-        
-    }
-    return arr2;
-    
-   
+function myProblem(arr) {
+  let arr2 = [];
+  for (let i = 0; i < arr.length; i++) {
+    arr2.push(arr[i] * 2);
+  }
+  return arr2;
 }
 
-console.log (myProblem(arr1));
-
+console.log(myProblem(arr1));
