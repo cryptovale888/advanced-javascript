@@ -50,5 +50,6 @@ const addTask = () => {
 };
 
 const completeTask = (id) => {
-    document.getElementById(id).remove();
+    document.getElementById(id).style="display:none";
+    // Alternative: document.getElementById(id).remove();
 }
