@@ -1,9 +1,14 @@
-function testDebugging() {
-  let num1 = 10;
-  let num2 = 5;
 
-  // Add a breakpoint on the line below to pause execution
-  let result = num1 + num2;
+function validate(){
+    var phoneNumber = document.getElementById('phone-number');
+    var postalCode = document.getElementById('postal-code');
 
-  console.log("The result is: " + result);
+    var phoneRGEX = /^[(]{0,1}[0-9]{3}[)]{0,1}[-\s\.]{0,1}[0-9]{3}[-\s\.]{0,1}[0-9]{4}$/;
+    var postalRGEX = /^[A-Z]{1,2}[0-9]{1,2} ?[0-9][A-Z]{2}$/i;
+    var phoneResult = phoneRGEX(phoneNumber);
+    var postalResult = postalRGEX(postalCode);
+
+    alert("phone:"+phoneResult + ", postal code: "+postalResult);
+
+    return false;
 }

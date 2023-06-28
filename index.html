@@ -1,14 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    <button onclick="testDebugging()">Click me!</button>
-
-    Hello!
-    <script src="script.js"></script>
-  </body>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<h1>Debugging App</h1>
+<form onsubmit="validate()">
+    <p>
+        <input type="text"id="phone-number" placeholder="phone number"/>
+    </p><p>
+    <input type="text" id="postal-code" placeholder="postal code" />
+</p>
+    <p>
+        <input type="submit" />
+    </p>
+</form>
+</body>
+<script src="script.js"></script>
 </html>
