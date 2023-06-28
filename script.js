@@ -19,14 +19,12 @@ function myProblem(arr) {
 
 console.log(myProblem(arr1));
 
-
-
-let arr3 = {22, 33, 44, 55, 66, 77, 88, 99};
+let arr3 = [22, 33, 44, 55, 66, 77, 88, 99];
 function myProblem2(arr) {
   let sum = 0;
-  arr3.forEach(item => {
-    sum =+ item;
-    return sum;
-});
+  arr.forEach((item) => {
+    sum += item;
+  });
+  return sum;
 }
 console.log(myProblem2(arr3));
