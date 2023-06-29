@@ -1,0 +1,35 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    flex-direction: column;
+    width: auto;
+    height: auto;
+    padding: 50px;
+    background-color: #CDD3D5;
+    border: #506C64 4px solid;
+}
+
+button {
+    margin: 15px;
+    width: 100px;
+    border-radius: 20px;
+    height: 50px;
+    background-color: #75B8C8;
+    color: white;
+    border: solid 0.5px #506C64;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    font-weight: 700;
+}
