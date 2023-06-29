@@ -12,8 +12,9 @@ function validate() {
   phoneResult = phoneRGEX.test(phoneNumber);
   postalResult = postalRGEX.test(postalCode);
 
-  alert("phone:" + phoneResult + ", postal code: " + postalResult);
+  // alert("phone:" + phoneResult + ", postal code: " + postalResult);
 
+  /////////////////////// HOMEWORK 1
   // switch (phoneNumber | postalCode) {
   //   case phoneNumber === false:
   //     alert("Err: Please introduce phone number");
@@ -28,8 +29,19 @@ function validate() {
   //   default:
   //     console.log("everything is ok");
   // }
+  //////////////// 
 
-  if (phoneResult == true) {
+  ////////////////////// HOMEWORK 2
+  // (!phoneResult && phoneNumber == "") || (!postalResult && postalCode == "") ? alert("Please input info in both fields !")
+  //  : (phoneResult == true) ? alert(`${phoneNumber} is matching the pattern!`)
+  //  : alert(`Error! ${phoneNumber} does not match a valid format.`);
+  ///////////////////////////
+  
+
+  /////////////////////// 90% working
+  if ((!phoneResult && phoneNumber == "") || (!postalResult && postalCode == "")) {
+    alert("Please input info in both fields !");
+  } else if (phoneResult == true) {
     alert(`${phoneNumber} is matching the pattern!`);
   } else alert(`Error! ${phoneNumber} does not match a valid format.`);
 
@@ -38,14 +50,14 @@ function validate() {
     alert(`Your postal code is ${postalCode} and it's valid :blush: !`);
   } else alert(`Error! ${postalCode} does not match a valid format.`);
 
-  if (
-    (!phoneResult && phoneNumber == "") ||
-    (!postalResult && postalCode == "")
-  ) {
+  if ((!phoneResult && phoneNumber == "") || (!postalResult && postalCode == "")) {
     alert("Please input info in both fields !");
-  } else {
-  }
+  } 
+  ////////////////////////////
 }
+
+  
+
 //Case 1: Both fields correct input -> Working. Both alerts match;
 //Case 2: Both fields empty ->
 
@@ -118,3 +130,22 @@ function validate() {
 // Case 10: first empty, second right data;
 // Case 11: first wrong data, second empty;
 // Case 12: first right data, second empty;
+
+
+
+
+/////// Example of ternary operator -- Nice to know
+
+// let score = 50;
+// let grade = score >= 80 ? "A" : "B";
+// console.log(`Your exam grade is ${grade}`);
+
+
+/////// Example of ternary operator with multiple conditions -- Nice to know
+// let score = 10;
+// let grade = score >= 80 ? "A" 
+//   : score >= 70 ? "B" 
+//   : score >= 60 ? "C" 
+//   : "D";
+
+// console.log(`Your exam grade is ${grade}`)
