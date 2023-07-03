@@ -9,7 +9,7 @@ class Node {
 //     value:10;
 //     next:null;
 // }
-
+let removedNode;
 class LinkedList {
     constructor() {
         this.head = null;
@@ -40,6 +40,98 @@ class LinkedList {
             this.head = node;
         }
         this.size++;
+    }
+
+    append(value) {
+        const node = new Node(value);
+        if (this.isEmpty()) {
+            this.head = node;
+        } else {
+            let prev = this.head;
+            while (prev.next) {
+                prev = prev.next;
+            }
+            prev.next = node;
+        }
+        this.size++;
+    }
+
+    insert(value, index) {
+        if (index < 0 || index > this.size) {
+            return;
+        }
+        if (index === 0) {
+            this.prepend(value); //aici nu facem increase de increment pt ca se ocupa metoda prepend de asta
+        } else {
+            const node = new Node(value);
+            let prev = this.head;
+            for (let i = 0; i < index - 1; i++) {
+                prev = prev.next;
+            }
+            node.next = prev.next;
+            prev.next = node;
+            this.size++;
+        }
+    }
+
+    removeFrom(index) {
+        if (index < 0 || index >= this.size) {
+            return null;
+        }
+
+        if (index === 0) {
+            removedNode = this.head;
+            this.head = this.head.next;
+        } else {
+            let prev = this.head;
+            for (let i = 0; i < index - 1; i++) {
+                prev = prev.next;
+            }
+            removedNode = prev.next;
+            prev.next = removedNode.next;
+        }
+        this.size--;
+        return removedNode.value;
+    }
+
+    removeValue(value) {
+        if (this.isEmpty()) {
+            return null;
+        }
+        if (this.head.value === value) {
+            this.head = this.head.next;
+            this.size--;
+            return value;
+        } else {
+            let prev = this.head;
+            while (prev.next && prev.next.value !== value) {
+                prev = prev.next;
+            }
+            if (prev.next) {
+                removedNode = prev.next;
+                prev.next = removedNode.next;
+                this.size--;
+                return value;
+            }
+            return null;
+        }
+    }
+
+    searchForFirst(value) {
+        if (this.isEmpty()) {
+            return -1;
+            // return console.log(-1);
+        }
+        let i = 0;
+        let curr = this.head;
+        while (curr) {
+            if (curr.value === value) {
+                return i;
+            }
+            curr = curr.next;
+            i++;
+        }
+        return -1;
     }
 
     print() {
@@ -76,9 +168,33 @@ console.log('List content is: ', list);
 list.prepend(30);
 console.log('List content is: ', list);
 list.print();
-list.prepend(40);
 list.print();
 list.prepend(50);
 list.print();
-list.prepend('Ceva');
+list.prepend('prepend');
 list.print();
+list.append('append');
+list.print();
+list.insert('insert', 3);
+list.print();
+list.removeFrom(4); //Sterge elementul de pe indexul dat
+list.prepend(40);
+list.prepend(40);
+list.print();
+list.removeValue(40);
+list.removeValue(40); //Sterge primul element intalnit cu valoarea data
+const test = list.removeValue(40);
+console.log(test);
+list.print();
+const search = list.searchForFirst('append');
+console.log(search);
+list.print();
+list.removeFrom(0);
+list.removeFrom(0);
+list.removeFrom(0);
+list.removeFrom(0);
+list.removeFrom(0);
+list.removeFrom(0);
+list.print();
+
+list.searchForFirst(10);
