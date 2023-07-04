@@ -137,10 +137,12 @@ class Node {
         return;
       }
       if (level === 1) {
-        console.log(`${node.element} `);
+        console.log(`${node.value} `);
+        console.log("Level: " + level); //TODO: Try to fix this s**t
       } else if (level > 1) {
         this.printLevel(node.left, level - 1);
         this.printLevel(node.right, level - 1);
+        console.log("Level: " + level); //TODO: Try to fix this s**t
       }
     }
     isBST(node, min, max) {
@@ -163,8 +165,21 @@ bst.insert(10);
 bst.insert(20);
 bst.insert(30);
 bst.insert(5);
-bst.insert(2);
+bst.insert(2);  
 bst.insert(11);
+bst.insert(9);
+bst.insert(9);
+
 console.log(bst.search(bst.root,10));
 console.log(bst.search(bst.root,100));
 
+bst.inOrder();
+bst.preOrder();
+bst.postOrder();
+bst.levelOrder();
+
+
+console.log(bst.printLevel(bst.root, 1));
+bst.printLevel(bst.root, 2);
+bst.printLevel(bst.root, 3);
+bst.printLevel(bst.root, 4);
