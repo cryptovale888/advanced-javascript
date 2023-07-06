@@ -82,6 +82,20 @@ function fromRomanToArabNumbers(romanInput) {
 }
 
 
+// Aceeasi functie folosind metoda .slice()
+// function fromRomanToArabNumbersAdina(romanInput) {
+//     let result = 0;
+//     for (let i=0; i < romanValue.length; i++) {
+//         while (romanInput.search(romanValue[i]) === 0 ) {
+//         result += decimalValue[i];
+//                romanInput = romanInput.slice(romanValue[i].length);
+//         console.log(romanInput);
+//     }
+//     }
+//     return result;
+// }
+
+
 // function fromRomanToArabNumbers(romanInput) {
 //     let result = 0;
 //     for (i=0; i < romanValue.length; i++) {
