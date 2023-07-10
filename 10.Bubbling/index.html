@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- <form onclick="alert('bubbling form')" class="container">
+      form
+      <div id="div-element" onclick="alert('bubbling div')" class="container">
+        div
+        <p onclick="alert('bubbling p')" class="container">p</p>
+      </div>
+    </form> -->
+    <form class="container" id="button-form">
+      form
+      <button>stop form propagation</button>
+      <div id="div-element" class="container">
+        div
+        <button id="button">stop propagation</button>
+        <p class="container">p</p>
+      </div>
+    </form>
+    <script src="main.js"></script>
+  </body>
+</html>
