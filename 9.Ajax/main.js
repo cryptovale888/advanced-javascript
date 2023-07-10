@@ -1,99 +1,82 @@
-function getCountries() {
-    let xhr = new XMLHttpRequest();
-    xhr.open("GET", "https://restcountries.net/v3.1/all");
-    xhr.onload = function() {
-        if(xhr.status === 200) {
-            console.log("Succes!");
-            let countries =  JSON.parse(this.response);
-            console.log(countries);
-        }
-    }
-    xhr.send();
-}
-
-// let countryCard = document.createElement("div");
-// countryCard.style.width = "200px";
-// countryCard.style.height = "300px";
-// countryCard.style.border = "solid black"
-// document.getElementById("country-card-event").appendChild(countryCard);
-
 let body = document.getElementsByTagName("body")[0];
-body.style.display=`flex`;
-    // body[0].style.display = `flex`
+body.style.display = `flex`;
+body.style.flexDirection = `row`;
+body.style.flexWrap = `nowrap`;
+body.style.display = "grid";
+body.style.alignItems = "center";
 
-document.getElementById("country-card-event").onclick = function() {
-    let xhr = new XMLHttpRequest();
-    xhr.open("GET", "https://restcountries.net/v3.1/all");
-    xhr.onload = function() {
-        if(xhr.status === 200) {
-            console.log("Succes!");
-            let countries = JSON.parse(this.response);
-            // let countryCard = document.createElement("div");
-            // countryCard.style.width = "200px";
-            // countryCard.style.height = "300px";
-            // countryCard.style.border = "solid black";
-            // document.body.style.display = "flex";
-            // for(let i = 0; i< countries.length; i++) {
-            //     console.log(countries[i].name.common);
-            //     let cardContent = document.createTextNode(countries[i].name.common);
-            //     countryCard.appendChild(cardContent);
-            //     document.getElementsByTagName("div")[0].appendChild(countryCard);
-            // }
-            countries.forEach(country => {
-                let countryCard = document.createElement("div");
-                countryCard.style.width = "200px";
-                countryCard.style.height = "300px";
-                countryCard.style.border = "solid black";
-                countryCard.style.margin = "20px"
-                countryCard.style.display = "grid"
-                countryCard.style.gridTemplateColumns = "1fr 1fr 1fr"
-                console.log(country);
-                let cardContent = document.createTextNode(country.name.common);
-                document.getElementsByTagName("body")[0].appendChild(countryCard);
-                countryCard.appendChild(cardContent);
-                let flag = document.createElement("img");
-                flag.style.width = "160px"
-                flag.style.height = "80px"
-                flag.style.backgroundImage = "url(country.coatOfArms.png)";
-                countryCard.appendChild(flag);
-            });
+body.style.gridTemplateColumns = "1fr 1fr 1fr";
 
-            // for(let i = 0; i< xhr.response.length; i++) {
-            //     let countryCard = document.createElement("div");
-            //     countryCard.style.width = "200px";
-            //     countryCard.style.height = "300px";
-            //     countryCard.style.border = "solid black";
-            //     document.body.style.display = "flex";
-            //     document.getElementsByTagName("body")[0].appendChild(countryCard);
-            // }
-        }
+//document.getElementById("country-card-event").onclick =
+function getCountryData() {
+  let xhr = new XMLHttpRequest();
+  xhr.open("GET", "https://restcountries.net/v3.1/all");
+  xhr.onload = function () {
+    if (xhr.status === 200) {
+      console.log("Succes!");
+      let countries = JSON.parse(this.response);
+
+      countries.forEach((country) => {
+        let countryCard = document.createElement("div");
+        let br = document.createElement("br");
+        countryCard.style.width = "250px";
+        countryCard.style.height = "auto";
+        countryCard.style.border = "solid black";
+        countryCard.style.margin = "20px";
+        countryCard.style.display = "flex";
+        countryCard.style.flexDirection = "column";
+        countryCard.style.alignItems = "center";
+        // countryCard.style.justifyContent = "space-evenly";
+        countryCard.style.padding = "10px";
+
+        console.log(country);
+
+        let countryName = document.createTextNode(
+          `Country name: ${country.name.common}`
+        );
+        let countryPopulation = document.createTextNode(
+          `Population: ${country.population}`
+        );
+        let countryCapital = document.createTextNode(
+          `Capital: ${country.capital}`
+        );
+
+        let info = document.createElement("div");
+        info.style.display = "flex";
+        info.style.flexDirection = "column";
+        info.append(countryName);
+        info.innerHTML = info.innerHTML + "<br>";
+        info.append(countryPopulation);
+        info.innerHTML = info.innerHTML + "<br>";
+        info.append(countryCapital);
+
+        document.getElementsByTagName("body")[0].appendChild(countryCard);
+        let emblem = document.createElement("img");
+        emblem.style.width = "auto";
+        emblem.style.height = "200px";
+        emblem.setAttribute("src", `${country.coatOfArms.svg}`);
+        emblem.style.margin = "15px";
+        countryCard.appendChild(emblem);
+        countryCard.appendChild(info);
+
+        let flag = document.createElement("img");
+        flag.style.height = "50px";
+        flag.style.width = "auto";
+        flag.style.margin = "15px";
+        flag.setAttribute("src", `${country.flags.svg}`);
+        countryCard.appendChild(flag);
+
+        // let obj={};
+        // obj={country.currencies:{name}};
+
+        // let currency = document.createTextNode(
+        //   `Currency: ${JSON.stringify(country.currencies)}`
+        // );
+        // countryCard.appendChild(currency);
+      });
     }
-    xhr.send();
-
-    // console.log(xhr.response.length);
-    // setTimeout(() => {
-    //     console.log(xhr.response.length);
-    // }, "3000");
-    
-    // for(let i = 0; i< xhr.response.length; i++) {
-    //     let countryCard = document.createElement("div");
-    //     countryCard.style.width = "200px";
-    //     countryCard.style.height = "300px";
-    //     countryCard.style.border = "solid black";
-    //     document.body.style.display = "flex";
-    //     document.getElementsByTagName("body")[0].appendChild(countryCard);
-    // }
-
-    // let countryCard = document.createElement("div");
-    // countryCard.style.width = "200px";
-    // countryCard.style.height = "300px";
-    // countryCard.style.border = "solid black";
-    // document.body.style.display = "flex";
-    // // document.getElementsByTagName("body")[0].style.cssText = `display:flex`;
-    // // let body = document.querySelector("body")[0];
-    // // body.style.display = `flex`
-    // document.getElementsByTagName("body")[0].appendChild(countryCard);
-    
+  };
+  xhr.send();
 }
 
-
+getCountryData();
